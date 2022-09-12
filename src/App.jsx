@@ -73,7 +73,7 @@ export default function App() {
           <img src={Img} alt="aa" />
           <div>
             <h2>Sardorbek</h2>
-            <h4>+777777777</h4>
+            <h4>+999999999</h4>
           </div>
         </ImageDiv>
         <UL open={open}>
