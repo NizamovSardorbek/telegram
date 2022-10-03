@@ -73,7 +73,7 @@ export default function App() {
           <img src={Img} alt="aa" />
           <div>
             <h2>Sardorbek</h2>
-            <h4>+999999999</h4>
+            <h4>+99999999</h4>
           </div>
         </ImageDiv>
         <UL open={open}>
@@ -103,7 +103,7 @@ export default function App() {
             <ul>
               <li>About</li>
               <li>About</li>
-              <li>About</li>
+              <li>House</li>
               <li>About</li>
               <li>About</li>
             </ul>
@@ -189,7 +189,7 @@ export default function App() {
             </IconWrap>
           </SpanIcons>
           <SpanIcons>
-            <input type="text" placeholder="Search user " />
+            <input type="text" placeholder="Search users " />
             <IconWrap>
               <BsSearch />
             </IconWrap>
