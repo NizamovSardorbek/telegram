@@ -117,6 +117,10 @@ export const Table = styled.table`
   }
 `;
 
+export const Tr=styled.tr`
+  
+`
+
 export const AvatarDiv = styled.div`
   display: flex;
   align-items: center;

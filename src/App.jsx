@@ -21,6 +21,7 @@ import {
   UL,
   Chats,
   Table,
+  Tr,
   Navbar,
   ImageAvatar,
   SpanIcons,
@@ -31,6 +32,7 @@ import {
   Stickers,
   InputAdd,
 } from "./Appstyled";
+import { useEffect } from "react";
 
 export default function App() {
   const [data, setData] = useState(Data);
@@ -39,8 +41,10 @@ export default function App() {
   const [modal2, setModal2] = useState(false);
   const [modal3, setModal3] = useState(false);
   const [modal4, setModal4] = useState(false);
+
   const [openInput, setOpenInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  console.log({ inputValue });
 
   const OpenModal = () => {
     setModal(!modal);
@@ -65,7 +69,7 @@ export default function App() {
 
   const AddValue = () => {
     if (inputValue.length > 0) {
-      const Dates = [
+      let Dates = [
         ...data,
         {
           id: data.length + 1,
@@ -76,7 +80,12 @@ export default function App() {
         },
       ];
       setData(Dates);
+      setInputValue("");
     }
+  };
+
+  const onIputChange = ({ target: { value } }) => {
+    setInputValue(value);
   };
   const onDelete = (ids) => {
     const newData = data.filter((val) => val.id !== ids);
@@ -213,9 +222,10 @@ export default function App() {
         </Chats>
         {openInput ? (
           <InputAdd
+          value={inputValue}
             placeholder="Add user"
             type="text"
-            onChange={({ target }) => setInputValue(target.value)}
+            onChange={onIputChange}
           />
         ) : (
           ""
@@ -230,8 +240,8 @@ export default function App() {
           <Table>
             {data.length > 0 ? (
               data.map((value, index) => (
-                <div>
-                  <ImageAvatar key={index}>
+                <Tr key={value.id}>
+                  <ImageAvatar>
                     <AvatarDiv>
                       <img src={value.image} alt="" />
                       <div>
@@ -252,7 +262,7 @@ export default function App() {
                     </div>
                     <Button onClick={() => onDelete(value.id)}>delete</Button>
                   </ImageAvatar>
-                </div>
+                </Tr>
               ))
             ) : (
               <h1>No Messages</h1>
