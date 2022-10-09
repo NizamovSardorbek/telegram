@@ -86,7 +86,7 @@ export default function App() {
           {modal ? (
             <ul>
               <li>About</li>
-              <li>home</li>
+              <li>About</li>
               <li>About</li>
               <li>About</li>
             </ul>
