@@ -12,6 +12,7 @@ import { IoPersonAddSharp } from "react-icons/io5";
 import { BsSearch } from "react-icons/bs";
 import Img from "./mock/user.svg";
 import { Data } from "./Data.js";
+import Boy from "./roadtomoon.jpeg";
 import {
   Container,
   Sidebar,
@@ -28,6 +29,7 @@ import {
   AvatarDiv,
   TableWrap,
   Stickers,
+  InputAdd,
 } from "./Appstyled";
 
 export default function App() {
@@ -62,7 +64,23 @@ export default function App() {
   };
 
   const AddValue = () => {
-    setData([...data, { id: data.lenth + 1, name: inputValue }]);
+    if (inputValue.length > 0) {
+      const Dates = [
+        ...data,
+        {
+          id: data.length + 1,
+          name: inputValue,
+          parapraph:
+            "lorem ipsum solid color red violince  red violincelorem ipsum solid color red violince",
+          count: data.length % 2,
+        },
+      ];
+      setData(Dates);
+    }
+  };
+  const onDelete = (ids) => {
+    const newData = data.filter((val) => val.id !== ids);
+    setData(newData);
   };
   return (
     <Container>
@@ -194,7 +212,8 @@ export default function App() {
           </SpanIcons>
         </Chats>
         {openInput ? (
-          <input
+          <InputAdd
+            placeholder="Add user"
             type="text"
             onChange={({ target }) => setInputValue(target.value)}
           />
@@ -209,38 +228,46 @@ export default function App() {
         </Navbar>
         <TableWrap>
           <Table>
-            {data.map((value, index) => (
-              <div>
-                <ImageAvatar key={index}>
-                  <AvatarDiv>
-                    <img src={value.image} alt="" />
+            {data.length > 0 ? (
+              data.map((value, index) => (
+                <div>
+                  <ImageAvatar key={index}>
+                    <AvatarDiv>
+                      <img src={value.image} alt="" />
+                      <div>
+                        <b>{value.name}</b> <br />
+                        <span>{value.parapraph}</span>
+                      </div>
+                    </AvatarDiv>
                     <div>
-                      <b>{value.name}</b> <br />
-                      <span>{value.parapraph}</span>
-                    </div>
-                  </AvatarDiv>
-                  <div>
-                    <div>
-                      {value.count > 0 ? (
-                        <div className="Father">
-                          <h5>{value.count}</h5>
-                        </div>
-                      ) : (
-                        ""
+                      <div>
+                        {value.count > 0 ? (
+                          <div className="Father">
+                            <h5>{value.count}</h5>
+                          </div>
+                        ) : (
+                          ""
                         )}
+                      </div>
                     </div>
-                  </div>
-                        <Button>delete</Button>
-                </ImageAvatar>
-              </div>
-            ))}
+                    <Button onClick={() => onDelete(value.id)}>delete</Button>
+                  </ImageAvatar>
+                </div>
+              ))
+            ) : (
+              <h1>No Messages</h1>
+            )}
           </Table>{" "}
-          <Stickers>
-            🥵😶‍🌫️😱🤔🤗😓😥😰😶🤥😬🙄😯😦😧😮😮‍💨😪🤤😴🥱😲😵😵‍💫🤐🥴🤢🤮🤠🤑🤕🤒😷
-            🤧😈👿👹👺🤡💩🤖👾👽☠️💀
-            👻🎃😺😸😹😻😼😀😃😄😁😆😅😂🤣🥲☺️😊😇🙂🙃😉😌😍🥰😘😗😙
-            😚😋🧐🤨🤪😜😝😛🤓😎🥸🤩🥳 😏🙁😕😟😔😞😒☹️😣😖😫😩
-          </Stickers>
+          {data.length > 0 ? (
+            <Stickers>
+              🥵😶‍🌫️😱🤔🤗😓😥😰😶🤥😬🙄😯😦😧😮😮‍💨😪🤤😴🥱😲😵😵‍💫🤐🥴🤢🤮🤠🤑🤕🤒😷
+              🤧😈👿👹👺🤡💩🤖👾👽☠️💀
+              👻🎃😺😸😹😻😼😀😃😄😁😆😅😂🤣🥲☺️😊😇🙂🙃😉😌😍🥰😘😗😙
+              😚😋🧐🤨🤪😜😝😛🤓😎🥸🤩🥳 😏🙁😕😟😔😞😒☹️😣😖😫😩
+            </Stickers>
+          ) : (
+            ""
+          )}
         </TableWrap>
       </Content>
     </Container>

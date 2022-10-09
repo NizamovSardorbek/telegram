@@ -159,3 +159,10 @@ export const IconWrap = styled.i`
   color: white;
   margin: 0 10px;
 `;
+export const InputAdd = styled.input`
+  width: 700px;
+  height: 40px;
+  margin-left: 20%;
+  font-size: 20px;
+  color: red;
+`;
