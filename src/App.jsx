@@ -59,12 +59,10 @@ export default function App() {
 
   const openModalInput = () => {
     setOpenInput(!openInput);
-    console.log(openInput);
   };
 
   const AddValue = () => {
     setData([...data, { id: data.lenth + 1, name: inputValue }]);
-    console.log(data);
   };
   return (
     <Container>
@@ -229,9 +227,10 @@ export default function App() {
                         </div>
                       ) : (
                         ""
-                      )}
+                        )}
                     </div>
                   </div>
+                        <Button>delete</Button>
                 </ImageAvatar>
               </div>
             ))}
@@ -242,7 +241,6 @@ export default function App() {
             👻🎃😺😸😹😻😼😀😃😄😁😆😅😂🤣🥲☺️😊😇🙂🙃😉😌😍🥰😘😗😙
             😚😋🧐🤨🤪😜😝😛🤓😎🥸🤩🥳 😏🙁😕😟😔😞😒☹️😣😖😫😩
           </Stickers>
-          {/* <img src={StickerImg} alt="" /> */}
         </TableWrap>
       </Content>
     </Container>
