@@ -71,6 +71,7 @@ export const Stickers = styled.div`
   padding: 20px;
   letter-spacing: 9px;
   font-size: 40px;
+  cursor: pointer;
 `;
 
 export const Button = styled.button`
