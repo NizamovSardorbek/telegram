@@ -6,13 +6,11 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BsExclamationCircle } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
-import { RiDeleteBin5Line } from "react-icons/ri";
 import { IoChatbubblesSharp } from "react-icons/io5";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { BsSearch } from "react-icons/bs";
 import Img from "./mock/user.svg";
 import { Data } from "./Data.js";
-import Boy from "./roadtomoon.jpeg";
 import {
   Container,
   Sidebar,
@@ -32,7 +30,6 @@ import {
   Stickers,
   InputAdd,
 } from "./Appstyled";
-import { useEffect } from "react";
 
 export default function App() {
   const [data, setData] = useState(Data);
@@ -44,7 +41,8 @@ export default function App() {
 
   const [openInput, setOpenInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  console.log({ inputValue });
+  const [searchval, setSearchval] = useState("");
+  console.log({ searchval });
 
   const OpenModal = () => {
     setModal(!modal);
@@ -90,6 +88,10 @@ export default function App() {
   const onDelete = (ids) => {
     const newData = data.filter((val) => val.id !== ids);
     setData(newData);
+  };
+  const onSearch = () => {
+    let res = data.filter((val) => val.name.toLowerCase().includes(searchval.toLowerCase()));
+    setData(res);
   };
   return (
     <Container>
@@ -189,11 +191,6 @@ export default function App() {
       </Sidebar>
       <Content>
         <Chats>
-          {/* <SpanIcons>
-            <div className="IconsNavbar">
-              <input type="text" placeholder="Search User" />
-            </div>
-          </SpanIcons> */}
           <SpanIcons>
             <h1>Chats</h1>
             <IconWrap>
@@ -211,9 +208,15 @@ export default function App() {
             </IconWrap>
           </SpanIcons>
           <SpanIcons>
-            <InputAdd width="small" type="text" placeholder="Search users " />
+            <InputAdd
+              type="text"
+              placeholder="Search users"
+              onChange={({ target: { value } }) => setSearchval(value)}
+            />
             <IconWrap>
-              <BsSearch />
+              <i>
+                <BsSearch onClick={onSearch} />
+              </i>
             </IconWrap>
           </SpanIcons>
         </Chats>

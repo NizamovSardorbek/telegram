@@ -84,9 +84,9 @@ export const Button = styled.button`
   }
   :active {
     transform: scale(0.3);
+    transition: all 0.3s ease-in;
     height: 50px;
     width: 80px;
-    transition: all 0.3s ease-in;
   }
 `;
 
@@ -162,6 +162,14 @@ export const IconWrap = styled.i`
   font-size: 26px;
   color: white;
   margin: 0 10px;
+  > i {
+    cursor: pointer;
+    :hover {
+      color: red;
+      transform: scale(0.3);
+      transition: all 0.3s ease-in;
+    }
+  }
 `;
 export const InputAdd = styled.input`
   width: 400px;
