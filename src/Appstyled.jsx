@@ -172,7 +172,7 @@ export const IconWrap = styled.i`
   }
 `;
 export const InputAdd = styled.input`
-  width: 400px;
+  width: ${({ widthh }) => (widthh ? widthh : "300px")};
   height: 40px;
   margin-left: 20%;
   font-size: 20px;

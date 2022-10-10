@@ -42,7 +42,7 @@ export default function App() {
   const [openInput, setOpenInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [searchval, setSearchval] = useState("");
-  console.log({ searchval });
+  const [select, setSelect] = useState("");
 
   const OpenModal = () => {
     setModal(!modal);
@@ -90,9 +90,14 @@ export default function App() {
     setData(newData);
   };
   const onSearch = () => {
-    let res = data.filter((val) => val.name.toLowerCase().includes(searchval.toLowerCase()));
+    let res = data.filter((val) =>
+      val.name.toLowerCase().includes(searchval.toLowerCase())
+    );
     setData(res);
   };
+  const onEdit = (vals) => {
+  };
+  console.log(select);
   return (
     <Container>
       <Sidebar open={open}>
@@ -222,6 +227,7 @@ export default function App() {
         </Chats>
         {openInput ? (
           <InputAdd
+          widthh= "700px"
             value={inputValue}
             placeholder="Add user"
             type="text"
@@ -260,7 +266,10 @@ export default function App() {
                         )}
                       </div>
                     </div>
-                    <Button onClick={() => onDelete(value.id)}>delete</Button>
+                    <div>
+                      <Button onClick={() => onDelete(value.id)}>delete</Button>
+                      <Button onClick={onEdit(value)}>Edit</Button>
+                    </div>
                   </ImageAvatar>
                 </Tr>
               ))
