@@ -43,7 +43,7 @@ export default function App() {
   const [inputValue, setInputValue] = useState("");
   const [searchval, setSearchval] = useState("");
   const [select, setSelect] = useState("");
-
+  const [title, setTitle] = useState("");
   const OpenModal = () => {
     setModal(!modal);
   };
@@ -96,8 +96,15 @@ export default function App() {
     setData(res);
   };
   const onEdit = (vals) => {
+    setSelect(vals.id);
+    setTitle(vals.name);
   };
-  console.log(select);
+  const onSave = () => {
+    const newData = data.map((val) =>
+      select === val.id ? { ...val, name: title } : val
+    );
+    setData(newData);
+  };
   return (
     <Container>
       <Sidebar open={open}>
@@ -227,7 +234,7 @@ export default function App() {
         </Chats>
         {openInput ? (
           <InputAdd
-          widthh= "700px"
+            widthh="700px"
             value={inputValue}
             placeholder="Add user"
             type="text"
@@ -251,7 +258,18 @@ export default function App() {
                     <AvatarDiv>
                       <img src={value.image} alt="" />
                       <div>
-                        <b>{value.name}</b> <br />
+                        <b>
+                          {select === value.id ? (
+                            <input
+                              onChange={(e) => setTitle(e.target.value)}
+                              type={"text"}
+                              value={title}
+                            />
+                          ) : (
+                            value.name
+                          )}
+                        </b>
+                        <br />
                         <span>{value.parapraph}</span>
                       </div>
                     </AvatarDiv>
@@ -268,7 +286,14 @@ export default function App() {
                     </div>
                     <div>
                       <Button onClick={() => onDelete(value.id)}>delete</Button>
-                      <Button onClick={onEdit(value)}>Edit</Button>
+                      {select === value.id ? (
+                        <>
+                          <Button onClick={onSave}>save</Button>
+                          <Button onClick={() => onEdit(value)}>cancel</Button>
+                        </>
+                      ) : (
+                        <Button onClick={() => onEdit(value)}>Edit</Button>
+                      )}
                     </div>
                   </ImageAvatar>
                 </Tr>
