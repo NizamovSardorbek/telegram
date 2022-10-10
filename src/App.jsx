@@ -189,14 +189,11 @@ export default function App() {
       </Sidebar>
       <Content>
         <Chats>
-          <SpanIcons>
+          {/* <SpanIcons>
             <div className="IconsNavbar">
-              <Button>delete</Button>
+              <input type="text" placeholder="Search User" />
             </div>
-            <IconWrap>
-              <RiDeleteBin5Line />
-            </IconWrap>
-          </SpanIcons>
+          </SpanIcons> */}
           <SpanIcons>
             <h1>Chats</h1>
             <IconWrap>
@@ -214,7 +211,7 @@ export default function App() {
             </IconWrap>
           </SpanIcons>
           <SpanIcons>
-            <input type="text" placeholder="Search users " />
+            <InputAdd width="small" type="text" placeholder="Search users " />
             <IconWrap>
               <BsSearch />
             </IconWrap>
@@ -222,7 +219,7 @@ export default function App() {
         </Chats>
         {openInput ? (
           <InputAdd
-          value={inputValue}
+            value={inputValue}
             placeholder="Add user"
             type="text"
             onChange={onIputChange}
@@ -273,7 +270,7 @@ export default function App() {
               🥵😶‍🌫️😱🤔🤗😓😥😰😶🤥😬🙄😯😦😧😮😮‍💨😪🤤😴🥱😲😵😵‍💫🤐🥴🤢🤮🤠🤑🤕🤒😷
               🤧😈👿👹👺🤡💩🤖👾👽☠️💀
               👻🎃😺😸😹😻😼😀😃😄😁😆😅😂🤣🥲☺️😊😇🙂🙃😉😌😍🥰😘😗😙
-              😚😋🧐🤨🤪😜😝😛🤓😎🥸🤩🥳 😏🙁😕😟😔😞😒☹️😣😖😫😩 
+              😚😋🧐🤨🤪😜😝😛🤓😎🥸🤩🥳 😏🙁😕😟😔😞😒☹️😣😖😫😩
             </Stickers>
           ) : (
             ""

@@ -79,6 +79,7 @@ export const Button = styled.button`
   padding: 10px 15px;
   cursor: pointer;
   :hover {
+    cursor: pointer;
     color: red;
   }
   :active {
@@ -118,9 +119,7 @@ export const Table = styled.table`
   }
 `;
 
-export const Tr=styled.tr`
-  
-`
+export const Tr = styled.tr``;
 
 export const AvatarDiv = styled.div`
   display: flex;
@@ -165,7 +164,7 @@ export const IconWrap = styled.i`
   margin: 0 10px;
 `;
 export const InputAdd = styled.input`
-  width: 700px;
+  width: 400px;
   height: 40px;
   margin-left: 20%;
   font-size: 20px;
