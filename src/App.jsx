@@ -42,7 +42,7 @@ export default function App() {
   const [openInput, setOpenInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [searchval, setSearchval] = useState("");
-  const [select, setSelect] = useState("");
+  const [select, setSelect] = useState(null);
   const [title, setTitle] = useState("");
   const OpenModal = () => {
     setModal(!modal);
@@ -100,10 +100,16 @@ export default function App() {
     setTitle(vals.name);
   };
   const onSave = () => {
-    const newData = data.map((val) =>
-      select === val.id ? { ...val, name: title } : val
+    console.log(select);
+    const newData = data.map((vale) =>
+      Number(select) === vale.id ? { ...vale, name: title } : vale
     );
     setData(newData);
+    setSelect(null);
+  };
+  console.log(select);
+  const onCancel = () => {
+    setSelect("");
   };
   return (
     <Container>
@@ -260,7 +266,7 @@ export default function App() {
                       <div>
                         <b>
                           {select === value.id ? (
-                            <input
+                            <InputAdd margin="10px"
                               onChange={(e) => setTitle(e.target.value)}
                               type={"text"}
                               value={title}
@@ -284,12 +290,13 @@ export default function App() {
                         )}
                       </div>
                     </div>
-                    <div>
-                      <Button onClick={() => onDelete(value.id)}>delete</Button>
+                    <div className="buttonwrap">
+                      <Button onClick={() => onDelete(value.id)}>delete</Button>{" "}
+                      <br />
                       {select === value.id ? (
                         <>
                           <Button onClick={onSave}>save</Button>
-                          <Button onClick={() => onEdit(value)}>cancel</Button>
+                          <Button onClick={onCancel}>cancel</Button>
                         </>
                       ) : (
                         <Button onClick={() => onEdit(value)}>Edit</Button>

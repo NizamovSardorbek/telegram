@@ -133,7 +133,9 @@ export const ImageAvatar = styled.div`
   width: 900px;
   border-bottom: 1px solid gray;
   padding: 10px 0;
-
+  .buttonwrap {
+    display: flex;
+  }
   img {
     width: 40px;
     height: 40px;
@@ -174,7 +176,9 @@ export const IconWrap = styled.i`
 export const InputAdd = styled.input`
   width: ${({ widthh }) => (widthh ? widthh : "300px")};
   height: 40px;
-  margin-left: 20%;
+  margin-left: ${({ margin }) => (margin ? margin : "20%")};
   font-size: 20px;
   color: red;
+  border-radius: 2%;
+  text-align: ${({ margin }) => (margin ? "start" : "center")};
 `;
