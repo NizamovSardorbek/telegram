@@ -100,14 +100,12 @@ export default function App() {
     setTitle(vals.name);
   };
   const onSave = () => {
-    console.log(select);
     const newData = data.map((vale) =>
       Number(select) === vale.id ? { ...vale, name: title } : vale
     );
     setData(newData);
     setSelect(null);
   };
-  console.log(select);
   const onCancel = () => {
     setSelect("");
   };
@@ -118,7 +116,7 @@ export default function App() {
           <img src={Img} alt="aa" />
           <div>
             <h2>Sardorbek</h2>
-            <h4>+99999999</h4>
+            <h4>+9999999</h4>
           </div>
         </ImageDiv>
         <UL open={open}>
@@ -266,7 +264,8 @@ export default function App() {
                       <div>
                         <b>
                           {select === value.id ? (
-                            <InputAdd margin="10px"
+                            <InputAdd
+                              margin="10px"
                               onChange={(e) => setTitle(e.target.value)}
                               type={"text"}
                               value={title}
