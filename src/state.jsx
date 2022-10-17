@@ -23,7 +23,7 @@ export default class State extends Component {
         <button onClick={plus}>+</button>
         <span>Count: {this.state.count} </span>
         <button onClick={minus}>-</button>
-        <h1>Title : {this.state.title}</h1>
+        <h1>Title :: {this.state.title}</h1>
         <input onChange={change} type="text" />
       </div>
     );
