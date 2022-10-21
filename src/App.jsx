@@ -9,6 +9,7 @@ import { FiLogOut } from "react-icons/fi";
 import { IoChatbubblesSharp } from "react-icons/io5";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { BsSearch } from "react-icons/bs";
+import { BiBookmark } from "react-icons/bi";
 import Img from "./mock/user.svg";
 import { Data } from "./Data.js";
 import {
@@ -29,6 +30,9 @@ import {
   TableWrap,
   Stickers,
   InputAdd,
+  SpanDiv,
+  DivWrap,
+  SpanOdd,
 } from "./Appstyled";
 
 export default function App() {
@@ -111,6 +115,35 @@ export default function App() {
   };
   return (
     <Container>
+      <SpanDiv>
+        <SpanOdd className="icons">
+          <BiBookmark />
+        </SpanOdd>
+
+        <span className="icons">
+          <IoIosContact />
+        </span>
+
+        <span className="icons">
+          <AiTwotoneContacts />
+        </span>
+        <span className="icons">
+          <BsBox />
+        </span>
+        <span className="icons">
+          <FaRegQuestionCircle />
+        </span>
+        <span className="icons">
+          <MdOutlineAlternateEmail />
+        </span>
+        <span className="icons">
+          <BsExclamationCircle />
+        </span>
+        <span className="icons">
+          <FiLogOut />
+        </span>
+      </SpanDiv>
+
       <Sidebar open={open}>
         <ImageDiv open={open} onClick={Close}>
           <img src={Img} alt="aa" />
@@ -119,29 +152,23 @@ export default function App() {
             <h4>+9999999999</h4>
           </div>
         </ImageDiv>
+
         <UL open={open}>
-          <li onClick={OpenModal}>
-            <span className="icons">
-              <IoIosContact />
-            </span>
-            My Profile
-          </li>
-          {modal ? (
-            <ul>
-              <li>About</li>
-              <li>About</li>
-              <li>About</li>
-              <li>About</li>
-            </ul>
-          ) : (
-            " "
-          )}
-          <li onClick={OpenModal2}>
-            <span className="icons">
-              <AiTwotoneContacts />
-            </span>
-            My activites
-          </li>
+          <DivWrap>
+            <li onClick={OpenModal}>My Profile</li>
+            {modal ? (
+              <ul>
+                <li>About</li>
+                <li>About</li>
+                <li>About</li>
+                <li>About</li>
+              </ul>
+            ) : (
+              " "
+            )}
+          </DivWrap>
+
+          <li onClick={OpenModal2}>My activites</li>
           {modal2 ? (
             <ul>
               <li>About</li>
@@ -153,12 +180,8 @@ export default function App() {
           ) : (
             ""
           )}
-          <li onClick={OpenModal3}>
-            <span className="icons">
-              <BsBox />
-            </span>
-            Inventory
-          </li>
+
+          <li onClick={OpenModal3}>Inventory</li>
           {modal3 ? (
             <ul>
               <li>about</li>
@@ -169,12 +192,7 @@ export default function App() {
           ) : (
             ""
           )}
-          <li onClick={OpenModal4}>
-            <span className="icons">
-              <FaRegQuestionCircle />
-            </span>
-            Help
-          </li>
+          <li onClick={OpenModal4}>Help</li>
           {modal4 ? (
             <ul>
               <li>about</li>
@@ -185,24 +203,9 @@ export default function App() {
           ) : (
             ""
           )}
-          <li>
-            <span className="icons">
-              <MdOutlineAlternateEmail />
-            </span>
-            Support
-          </li>
-          <li>
-            <span className="icons">
-              <BsExclamationCircle />
-            </span>
-            Terms Contditions
-          </li>
-          <li>
-            <span className="icons">
-              <FiLogOut />
-            </span>
-            Logout
-          </li>
+          <li>Support</li>
+          <li>Terms Contditions</li>
+          <li>Logout</li>
         </UL>
       </Sidebar>
       <Content>

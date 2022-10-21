@@ -5,6 +5,36 @@ export const Container = styled.div`
     margin-right: 20px;
   }
 `;
+export const SpanOdd = styled.span`
+  padding: 30px 20px 100px 20px;
+  width: 100%;
+  background-color: #078bcd;
+`;
+
+export const DivWrap = styled.div`
+  /* display: flex; gap: 20px; */
+`;
+
+export const SpanDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  background-color: whitesmoke;
+  /* position: relative; */
+  gap: 20px;
+  > span {
+    padding-left: 30px;
+}
+`;
+
+export const UL = styled.ul`
+  margin-left: ${({ open }) => (open ? "100px" : "20px")};
+  /* margin-bottom: 40px; */
+  /* position: absolute; */
+  line-height: 50px;
+  /* top: 180px; */
+  padding-right: 10px;
+`;
 
 export const Sidebar = styled.div`
   background: whitesmoke;
@@ -17,6 +47,11 @@ export const Sidebar = styled.div`
 
   ul li {
     margin: 20px 0;
+    font-size: 30px;
+    :hover{
+      cursor: pointer;
+      color: red;
+    }
   }
 `;
 
@@ -39,10 +74,6 @@ export const ImageDiv = styled.div`
     transition: all 0.5s ease;
     margin-top: 30px;
   }
-`;
-
-export const UL = styled.ul`
-  margin-left: ${({ open }) => (open ? "100px" : "20px")};
 `;
 
 export const Content = styled.div`
