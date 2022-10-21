@@ -13,7 +13,7 @@ export   const  Data = [
     name:"Father",
     parapraph:"lorem ipsum solid color red violince  red violincelorem ipsum solid color red violince",
     image: Avatar,
-    count :4
+    count : 4
 },
 {
     id:2,

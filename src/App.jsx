@@ -78,7 +78,7 @@ export default function App() {
           name: inputValue,
           parapraph:
             "lorem ipsum solid color red violince  red violincelorem ipsum solid color red violince",
-          count: data.length % 2,
+          count: 2 + Math.floor(Math.random() * 10),
         },
       ];
       setData(Dates);
